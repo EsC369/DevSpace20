@@ -6,10 +6,17 @@ const bodyParser = require("body-parser")
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
+const passport = require("passport");
 
 // Body Parser Middleware:
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+
+// Passport Middleware:
+app.use(passport.initialize());
+
+// Passport Config:
+require("./config/passport.js")(passport);
 
 // Connect To MongoDB:
 mongoose.connect("mongodb://localhost/Dev-Face", function(err){
@@ -20,9 +27,6 @@ mongoose.connect("mongodb://localhost/Dev-Face", function(err){
       console.log("MongoDB Connected");
   }
 });
-
-//Route:
-app.get("/", (req, res) => res.send("hello"));
 
 // Use Routes:
 app.use("/api/users", users);
