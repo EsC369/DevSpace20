@@ -76,7 +76,7 @@ const ProfileSchema = new Schema({
       type: String,
       required: true
     },
-    degree {
+    degree: {
       type: String,
       required: true
     },
