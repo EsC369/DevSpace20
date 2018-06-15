@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 //Create Schema:
 const ProfileSchema = new Schema({
   user: {
-    type: Schema.Types.Objectid,
+    type: Schema.Types.ObjectId,
     ref: "users"
   },
 
@@ -38,7 +38,7 @@ const ProfileSchema = new Schema({
     type: String
   },
 
-  githubsername: {
+  githubusername: {
     type: String
   },
 
@@ -71,8 +71,8 @@ const ProfileSchema = new Schema({
 
   }],
 
-  eeducation: [{
-    School: {
+  education: [{
+    school: {
       type: String,
       required: true
     },
@@ -100,7 +100,7 @@ const ProfileSchema = new Schema({
 
   }],
 
-  Social: {
+  social: {
     youtube: {
       type: String
     },
