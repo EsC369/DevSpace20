@@ -87,7 +87,8 @@ class CreateProfile extends Component {
         twitter: profile.twitter,
         facebook: profile.facebook,
         linkedin: profile.linkedin,
-        youtube: profile.youtube
+        youtube: profile.youtube,
+        instagram: profile.instagram
       });
     }
   }
@@ -249,12 +250,12 @@ class CreateProfile extends Component {
                     HTML,CSS,JavaScript,PHP)"
                 />
                 <TextFieldGroup
-                  placeholder="Github Username"
+                  placeholder="Github Username Only"
                   name="githubusername"
                   value={this.state.githubusername}
                   onChange={this.onChange}
                   error={errors.githubusername}
-                  info="If You Want Your Latest Repos And A Github Link, Include Your Username"
+                  info="* NOTE: ONLY ENTER YOUR USERNAME! NOT THE ENTIRE GITHUB LINK ITSELF!* Example: https://github.com/facebook, ONLY PUT facebook"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"

@@ -19,7 +19,7 @@ app.use(passport.initialize());
 require("./config/passport.js")(passport);
 
 // Connect To MongoDB:
-mongoose.connect("mongodb://localhost/Dev-Face", function(err){
+mongoose.connect("mongodb://localhost/DevSpace", function(err){
   if(err) {
       console.log("Error: Mongo Wasnt Connected because of: ", err);
   }

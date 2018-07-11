@@ -135,7 +135,7 @@ router.post("/comment/:id", passport.authenticate("jwt", { session: false }), (r
 // @route   DELETE api/posts/comment/:id/:comment_id
 // @desc    Delete comment from post
 // @access  Private
-router.delete("/comment/:id/comment_id", passport.authenticate("jwt", { session: false }), (req, res) => {
+router.delete("/comment/:id/:comment_id", passport.authenticate("jwt", { session: false }), (req, res) => {
   Post.findById(req.params.id)
   .then(post => {
     // Check To See If The Comment Exists:
@@ -149,7 +149,7 @@ router.delete("/comment/:id/comment_id", passport.authenticate("jwt", { session:
     .indexOf(req.params.comment_id);
 
     // Splice It Out OF Array:
-    post.comment.splice(removeIndex, 1); // Removes 1 from index
+    post.comments.splice(removeIndex, 1); // Removes 1 from index
     // Save:
     post.save().then(post => res.json(post));
   })
