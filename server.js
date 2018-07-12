@@ -7,10 +7,14 @@ const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
 const passport = require("passport");
+cont path = require("path");
 
 // Body Parser Middleware:
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+
+// DB Config:
+// const db = require(".config/keys").mongoURI;
 
 // Passport Middleware:
 app.use(passport.initialize());
@@ -33,6 +37,15 @@ app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/posts", posts);
 
+// Server Static Asset if in production:  
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__direname, "client", "build", "index.html"));
+    });
+}
+
 // Listening
-const port = 5000
+const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`Server Running on port ${port}`));
