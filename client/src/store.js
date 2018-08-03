@@ -8,7 +8,7 @@ const middleware = [thunk];
 
 // Only chrome can handle the redux dev tools,
 //Redux compose cannot handle a null or undefined middleware
-if (window.navigator.userAgent.includes("Chrome")) {
+if (window.navigator.userAgent.search("Chrome")) {
   var store = createStore(
     rootReducer,
     initialState,
