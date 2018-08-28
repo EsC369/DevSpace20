@@ -32,7 +32,6 @@ mongoose.connect("mongodb://localhost/DevSpace", function(err){
   }
 });
 
-// Use Routes:
 app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/posts", posts);
